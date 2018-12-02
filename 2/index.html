@@ -13,9 +13,13 @@
     <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        const content = 'Hello World'
-        const className = 'container'
-        const element = <div className={className}>{(() => content)()}</div>
+        const content = 'Hello World';
+        const className = 'container';
+        const properties = {
+            className: className,
+            children: content
+        };
+        const element = <div {...properties}/>;
         ReactDOM.render(element, rootElement);
     </script>
 </body>
