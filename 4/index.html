@@ -13,11 +13,12 @@
     <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         const rootElement = document.getElementById('root');
-        const Message = (prop) => <div>{prop.msg}</div>
+        // reusable function
+        const Message = (prop) => <div>{prop.children}</div>;
         const element = (
             <div className="container">
-                <Message msg="Hello World" />
-                <Message msg="Goodbye World" />
+                <Message>Hello World</Message>
+                <Message>Goodbye World</Message>
             </div>
         );
         ReactDOM.render(element, rootElement);
