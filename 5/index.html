@@ -16,18 +16,23 @@
         function SayHello(props) {
             return (
                 <div>
-                    Hello {props.name}!
+                    Hello {props.firstName} {props.lastName}!
                 </div>
             )
         }
-        SayHello.propTypes = {
-            name(props, propName, componentName) {
+
+        const PropTypes = {
+            string(props, propName, componentName) {
                 if (typeof props[propName] !== 'string') {
                     return new Error(`Hey, you should pass a string for ${propName} in ${componentName}, but you passed ${typeof props[propName]}!`)
                 }
             }
+        }
+        SayHello.propTypes = {
+            firstName: PropTypes.string,
+            lastName: PropTypes.string
         };
-        const element = <SayHello name={true}/>;
+        const element = <SayHello firstName={true} lastName={false}/>;
         ReactDOM.render(element, rootElement);
     </script>
 </body>
